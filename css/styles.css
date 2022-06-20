@@ -5,12 +5,36 @@
     margin: 0%;
     overflow-x: hidden;
 }
+
+div{
+    z-index: inherit;
+}
+
+span{
+    position: relative;
+}
+
+header span::before{
+    content: "";
+    background-color: #52b788;
+    animation: reveal 2s ease forwards;
+    position: absolute;
+    inset: 0;
+}
+
+@keyframes reveal {
+    to {
+        left: 100%;
+    }
+}
+
+
 h1,h2,h3,h4,h5.h6{
     font-family: sans-serif;
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: aqua;
+    background-color: #52b788;
 }
 
 html::-webkit-scrollbar-track {
@@ -24,13 +48,14 @@ html::-webkit-scrollbar {
 body {
     background-color: black;
     user-select: none;
+    z-index: -2;
 }
 
 a {
     cursor: pointer;
     text-decoration: none;
     color: black ;
-
+    z-index: 0;
 }
 
 a:hover{
@@ -50,6 +75,7 @@ li {
     text-align: center;
     margin-bottom: 20px;
     cursor: pointer;
+    z-index: 0;
 }
 
 ul:first-child {
@@ -62,7 +88,7 @@ ul:first-child {
 }
 
 .active>a {
-    color: aqua !important;
+    color: #52b788 !important;
 }
 
 
@@ -70,18 +96,21 @@ ul:first-child {
     width: 100%;
     display: flex;
     position: relative;
+    z-index: 0;
 }
 
 .navbar {
     height: 660px;
     width: 10%;
-    background-color: aqua;
+    background-color: #52b788;
+    z-index: 0;
 }
 
 nav {
     width: 100%;
     height: 100%;
     overflow-y: hidden;
+    z-index: 0;
 }
 
 .hero-pic {
@@ -95,28 +124,20 @@ nav {
 }
 
 .hero-pic .bg {
-    width: 90%;
-    height: 580px;
+    width: 100%;
     object-fit: cover;
-    transform: translate(20px, 30px);
-    opacity: .7;
+    opacity: .6;
+    height: 660px;
 }
 
-.hero-des {
-    width: 90%;
-    height: 580px;
-    border: 5px solid aqua;
-    position: absolute;
-    left: 3% !important;
-    top: 3% !important;
-}
 
 .hero-txt {
     position: absolute;
     left: 10% !important;
+    z-index: 1;
 }
 .hero-txt > h1 > span{
-    color: aqua;
+    color: #52b788;
 }
 
 
@@ -138,7 +159,7 @@ ul {
     flex-direction: column;
     align-items: center;
     height: 100%;
-
+    z-index: 0;
 }
 
 
@@ -146,7 +167,7 @@ ul {
 header {
     background-color: black;
     background-size: cover;
-    min-height: 1000px;
+    height: 700px;
     width: 100%;
     position: relative;
 }
@@ -169,8 +190,8 @@ header h3 {
     padding: .5rem 1rem;
     margin-left: 3rem;
     background-color: inherit;
-    border: 2px solid aqua;
-    color: aqua;
+    border: 2px solid #52b788;
+    color: #52b788;
     border-radius: 12px;
 
 }
@@ -179,7 +200,7 @@ header h3 {
     font-size: 30px;
     padding: .5rem 1rem;
     margin-left: 2rem;
-    background-color: aqua;
+    background-color: #52b788;
     color: black;
     border-radius: 50%;
     border: 2px solid black;
@@ -187,15 +208,15 @@ header h3 {
 }
 
 .tour:hover {
-    background-color: aqua;
+    background-color: #52b788;
     border: 2px solid black;
     color: black;
 }
 
 .plus:hover {
     background-color: inherit;
-    color: aqua;
-    border: 2px solid aqua;
+    color: #52b788;
+    border: 2px solid #52b788;
 }
 
 header img {
@@ -214,7 +235,6 @@ header img {
     background-color: black;
     justify-content: center;
     margin-bottom: 20px;
-    height: 110vh;
     position: relative;
 }
 
@@ -244,7 +264,7 @@ header img {
 .ft-pic-des {
     width: 80%;
     height: 300px;
-    border: 4px solid aqua;
+    border: 4px solid #52b788;
     position: absolute;
     left: 20px !important;
     top: 20px !important;
@@ -280,7 +300,7 @@ header img {
     background-color: black;
     position: relative;
     overflow-y: hidden;
-
+    z-index: 0;
 }
 
 .bg-p {
@@ -288,33 +308,34 @@ header img {
     object-fit: cover;
     transition: .1s ease-in-out;
     height: 455.5px;
-
+    z-index: -2;
 }
 
 
 
 .bg-p:hover+.hover-text {
-    transform: translateY(0);
+    transform: translateY(0px);
 }
 
 
 .hover-text {
     width: 25%;
     color: white;
-    background-color: grey;
+    background-color: black;
     height: 200px;
     transform: translateY(310px);
     transition: .5s ease-in-out;
     animation-fill-mode: forwards;
     position: absolute;
     bottom: 0;
+    z-index: -2;
 }
 
 hr {
-    border-color: aqua;
+    border-color: #52b788;
     width: 70%;
     margin: 5px 15px;
-    border-width: 2px;
+    border-width: 1px;
 
 }
 
@@ -344,18 +365,6 @@ hr {
     padding-top: 20px;
 }
 
-.parallax-wrapper button{
-    width: 60%;
-    position: absolute;
-    bottom: 0;
-    left: 20%;
-    height: auto;
-    background-color: aqua;
-    color: black;
-    font-size: 1.5rem;
-    padding: .25rem 0;
-    border-radius: 16px;
-}
 
 .testimonials {
     width: 100%;
@@ -394,7 +403,7 @@ hr {
 .pic-des {
     width: 80%;
     height: 300px;
-    border: 4px solid aqua;
+    border: 4px solid #52b788;
     position: absolute;
     left: 20px !important;
     top: 20px !important;
@@ -426,7 +435,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 255, 255);
+    background-color: #40916c;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     position: fixed;
@@ -434,6 +443,7 @@ hr {
     margin: 0 5%;
     border-radius: 16px 16px 0 0;
     display: none;
+    z-index: 0;
 }
 
 
@@ -445,10 +455,6 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
-}
-.links > a:hover {
-    color: black;
 }
 .icon1{
     font-size: 1.15rem;
@@ -457,21 +463,21 @@ hr {
 footer{
     height: 150px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     color: white;
     justify-content: center;
     align-items: center;
 }
 
 .footer-img-box{
-    width: 40%;
+    width: 15%;
     height: 100px;
     display: flex;
     justify-content: center;
 }
 
 .footer-img-box img{
-    width: 20%;
+    width: 100%;
     height: 100%;
 }
 
@@ -491,7 +497,7 @@ footer{
     width: 100%;
     height: 50px;
     justify-content: center;
-    background-color: aqua;
+    background-color: #52b788;
     color: black;
     display: flex;
     align-items: center;
@@ -514,7 +520,7 @@ footer{
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .hero h3 {
@@ -529,12 +535,30 @@ footer{
     .hero-pic {
         width: 100%;
         overflow-y: hidden;
+        height: 600px;
     }
 
-   
+    .hero-des{
+        left: 1% !important;
+        
+    }
+
+
+    .hero-pic .bg{
+        transform: translate(0, 0);
+        height: 600px;
+    }
+
+    .hero-txt{
+        left: 0 !important;
+    }
+
+    .logo{
+        top: 0px;
+    }
 
     .tour {
-        font-size: 15px;
+        font-size: 25px;
     }
 
     .plus {
@@ -551,28 +575,25 @@ footer{
         width: 90%;
     }
     .features-pic {
-        height: 200px;
+        height: 250px;
     }
     .features-pic img {
-        height: 150px;
+        height: 220px;
     }
 
     .f-text{
         height: 150px;
     }
     .ft-pic-des {
-        height: 150px;
-        left: 10px;
-        top: 10px;
+        height: 220px;
+        left: 24px !important;
+        top: 0px !important;
     }
 
     .parallax-wrapper {
         flex-direction: column;
     }
-    .parallax-wrapper button{
-        width: 80%;
-        left: 10%;
-    }
+
 
     .bg-p {
         height: 600px;
@@ -584,7 +605,7 @@ footer{
         flex-direction: column;
         transform: translateY(0);
         width: 100%;
-
+        z-index: 2;
     }
 
     .fr {
@@ -612,6 +633,10 @@ footer{
     .pic{
         width: 40%;
     }
+    .pic-des {
+        left: 1px !important;
+        top: 30px !important;
+    }
     .t-text{
         width: 60%;
     }
@@ -628,15 +653,15 @@ footer{
     }
 
     footer{
-        margin-bottom: 45px;
+        margin-bottom: 55px;
     }
 
     .footer-img-box{
-        width: 20%;
+        width: 28%;
     }
 
     .footer-img-box img{
-        width: 80%;
+        width: 100%;
     }
 
     .footer-links{

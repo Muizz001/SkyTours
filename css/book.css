@@ -1,15 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Josefin+Sans:wght@100;300&display=swap');
+
 * {
     padding: 0%;
     margin: 0%;
     overflow-x: hidden;
-    box-sizing: border-box;
 }
+
+div{
+    z-index: inherit;
+}
+
+span{
+    position: relative;
+}
+
+header span::before{
+    content: "";
+    background-color: #52b788;
+    animation: reveal 2s ease forwards;
+    position: absolute;
+    inset: 0;
+}
+
+@keyframes reveal {
+    to {
+        left: 100%;
+    }
+}
+
+
 h1,h2,h3,h4,h5.h6{
     font-family: sans-serif;
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: aqua;
+    background-color: #52b788;
 }
 
 html::-webkit-scrollbar-track {
@@ -23,23 +48,20 @@ html::-webkit-scrollbar {
 body {
     background-color: black;
     user-select: none;
+    z-index: -2;
 }
 
 a {
     cursor: pointer;
     text-decoration: none;
-    color: black;
-
+    color: black ;
+    z-index: 0;
 }
 
 a:hover{
     color: white;
 }
 
-a:active {
-    border-bottom: 1px aqua solid;
-
-}
 
 button {
     cursor: pointer;
@@ -53,19 +75,20 @@ li {
     text-align: center;
     margin-bottom: 20px;
     cursor: pointer;
+    z-index: 0;
 }
 
-ul:first-child  {
+ul:first-child {
     margin-top: 100px;
 }
 
 
-.active{
+.active {
     background-color: black;
 }
 
 .active>a {
-    color: aqua !important;
+    color: #52b788 !important;
 }
 
 
@@ -73,20 +96,22 @@ ul:first-child  {
     width: 100%;
     display: flex;
     position: relative;
+    z-index: 0;
 }
 
 .navbar {
     height: 660px;
     width: 10%;
-    background-color: aqua;
+    background-color: #52b788;
+    z-index: 0;
 }
 
 nav {
     width: 100%;
     height: 100%;
     overflow-y: hidden;
+    z-index: 0;
 }
-
 
 .hero-pic {
     width: 90%;
@@ -99,28 +124,20 @@ nav {
 }
 
 .hero-pic .bg {
-    width: 90%;
-    height: 580px;
+    width: 100%;
     object-fit: cover;
-    transform: translate(20px, 30px);
-    opacity: .7;
+    opacity: .6;
+    height: 660px;
 }
 
-.hero-des {
-    width: 90%;
-    height: 580px;
-    border: 5px solid aqua;
-    position: absolute;
-    left: 3% !important;
-    top: 3% !important;
-}
 
 .hero-txt {
     position: absolute;
     left: 10% !important;
+    z-index: 1;
 }
 .hero-txt > h1 > span{
-    color: aqua;
+    color: #52b788;
 }
 
 
@@ -142,7 +159,7 @@ ul {
     flex-direction: column;
     align-items: center;
     height: 100%;
-
+    z-index: 0;
 }
 
 
@@ -150,7 +167,7 @@ ul {
 header {
     background-color: black;
     background-size: cover;
-    min-height: 1000px;
+    height: 700px;
     width: 100%;
     position: relative;
 }
@@ -163,7 +180,7 @@ header h1 {
 }
 
 section{
-    height: 100vh;
+    height: 500px;
     width: 100%;
     
 }
@@ -175,10 +192,6 @@ section{
        
 }
 
-.tour-forms::-webkit-scrollbar{
-    height: 0;
-    width: 0;
-}
 
 .forms{
     height: 100%;
@@ -187,7 +200,6 @@ section{
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    padding: 5% 0;
     color: white;
 }
 
@@ -198,7 +210,7 @@ section{
 input{
     width: 80%;
     height: 60px;
-    border: 2px aqua solid;
+    border: 2px #52b788 solid;
     border-radius: 16px;
     color: white;
     background-color: black;
@@ -211,7 +223,7 @@ select{
     text-align: center;
     border-radius: 16px;
     height: 60px;
-    border: 2px aqua solid;
+    border: 2px #52b788 solid;
     color: white;
     background-color: black;
     margin-bottom: 4%;
@@ -234,31 +246,63 @@ select{
 
 form button{
     width: 80%;
-    background-color: aqua;
+    background-color: #52b788;
     color: black;
     height: 40px;
     border-radius: 16px;
     margin-top: 3%;
 }
 
+
+.mobile-nav{
+    width: 90%;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #40916c;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: fixed;
+    bottom: 0;
+    margin: 0 5%;
+    border-radius: 16px 16px 0 0;
+    display: none;
+    z-index: 0;
+}
+
+
+.links{
+    width: 25%;
+} 
+
+.links > a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon1{
+    font-size: 1.15rem;
+}
+
 footer{
     height: 150px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     color: white;
     justify-content: center;
     align-items: center;
 }
 
 .footer-img-box{
-    width: 40%;
+    width: 15%;
     height: 100px;
     display: flex;
     justify-content: center;
 }
 
 .footer-img-box img{
-    width: 20%;
+    width: 100%;
     height: 100%;
 }
 
@@ -278,48 +322,16 @@ footer{
     width: 100%;
     height: 50px;
     justify-content: center;
-    background-color: aqua;
+    background-color: #52b788;
     color: black;
     display: flex;
     align-items: center;
 }
 
-.mobile-nav{
-    width: 90%;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0, 255, 255);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    position: fixed;
-    bottom: 0;
-    margin: 0 5%;
-    border-radius: 16px 16px 0 0;
-    display: none;
-}
-
-
-.links{
-    width: 25%;
-} 
-
-.links > a{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.footer-links > a{
-    color: white !important;
-}
-.icon1{
-    font-size: 1.15rem;
-}
 
 @media only screen and (max-width:900px) {
     body {
-        background-color: black ;
+        background-color: black !important;
     }
 
     #header {
@@ -334,17 +346,36 @@ footer{
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
+    .hero h3 {
+        font-size: 1rem;
+    }
 
     .navbar {
         display: none;
     }
 
+
     .hero-pic {
         width: 100%;
         overflow-y: hidden;
+        height: 600px;
+    }
+
+
+    .hero-pic .bg{
+        transform: translate(0, 0);
+        height: 600px;
+    }
+
+    .hero-txt{
+        left: 0 !important;
+    }
+
+    .logo{
+        top: 0px;
     }
 
     input{
@@ -377,15 +408,16 @@ footer{
     }
 
     footer{
-        margin-bottom: 45px;
+        margin-bottom: 55px;
     }
 
     .footer-img-box{
-        width: 20%;
+        width: 28%;
     }
 
     .footer-img-box img{
-        width: 80%;
+        width: 100%;
+        object-fit: unset;
     }
 
     .footer-links{
